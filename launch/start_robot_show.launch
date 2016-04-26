@@ -1,0 +1,15 @@
+<launch>
+        <include file="$(find basketball_description)/launch/display.launch"/>
+        <node name = "robot_trajectory_srv" pkg="basketball_trajectory_srv" type = "robot_trajectory_srv" output="screen">
+                <param name="target_frame_name" value="odom" />
+                <param name="source_frame_name" value="base_link"/>
+                <param name="trajectory_update_rate" value="4"/>
+                <param name="trajectory_publish_rate" value="5"/>
+        </node>
+        <node name = "robot_rviz_maker" pkg="basketball_maker_drawing" type="robot_rviz_debug" > 
+                  <param name="left_shovel_to_center_distance"  value="-0.115"/>        
+                  <param name="right_shovel_to_center_distance"  value="0.115"/>  
+                  <param name="shovel_length" value="0.25+0.17"/>
+        </node>
+	<node name = "robot_direction_maker" pkg = "basketball_direction_maker" type = "robot_direction"/>
+</launch>

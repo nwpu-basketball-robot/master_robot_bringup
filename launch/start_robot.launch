@@ -1,0 +1,10 @@
+<launch>
+	<node name = "robot_odom" pkg = "basketball_odom" type = "robot_odom"/>
+	<node name = "robot_driver" pkg = "basketball_driver" type = "robot_driver" />
+	<node name = "robot_shovel_srv" pkg = "basketball_shovel_srv" type = "robot_shovel_srv"/>
+	<node name = "robot_shoot_srv" pkg = "basketball_shoot_srv" type = "robot_shoot_srv"/>
+	<node name = "robot_serial" pkg = "basketball_base_serial" type = "robot_base_serial" output="screen">
+        	<param name = "serial_port"  value = "/dev/ttyUSB0"/>
+		<param name = "baud_rate" value = "115200"/>
+	</node>
+</launch>
